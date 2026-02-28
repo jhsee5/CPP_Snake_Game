@@ -20,8 +20,10 @@ int snake_x, snake_y;
 // fruit position
 int fruit_x, fruit_y;
 
-// fruit unicode
-string fruit_unicode = "\U0001F34E";
+// fruit colour
+string fruit_colour = "\x1b[38;2;255;140;0m"; // orange
+
+string reset_colour = "\x1b[0m"; // reset to white
 
 // player's score
 int game_score;
@@ -86,8 +88,7 @@ void Draw()
             else if (i == fruit_y && j == fruit_x)
             {
                 // Fruit
-                // cout << "F";
-                cout << u8"\U0001F34E";
+                cout << fruit_colour << "F" << reset_colour;
             }
             else
             {
@@ -246,6 +247,8 @@ void Logic()
     
 }
 
+int sleep_time_in_milli_seconds = 150;
+
 int main()
 {
     Setup();
@@ -254,7 +257,7 @@ int main()
         Draw();
         Input();
         Logic();
-        Sleep(225);
+        Sleep(sleep_time_in_milli_seconds);
     }
     return 0;
 }
