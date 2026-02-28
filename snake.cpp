@@ -20,6 +20,9 @@ int snake_x, snake_y;
 // fruit position
 int fruit_x, fruit_y;
 
+// fruit unicode
+string fruit_unicode = "\U0001F34E";
+
 // player's score
 int game_score;
 
@@ -83,7 +86,8 @@ void Draw()
             else if (i == fruit_y && j == fruit_x)
             {
                 // Fruit
-                cout << "F";
+                // cout << "F";
+                cout << u8"\U0001F34E";
             }
             else
             {
